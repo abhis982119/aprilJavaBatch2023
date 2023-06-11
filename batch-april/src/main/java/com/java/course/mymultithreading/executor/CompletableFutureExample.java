@@ -31,7 +31,7 @@ public class CompletableFutureExample {
         CompletableFuture<Integer> runnableTask2 = CompletableFuture.supplyAsync(getOrangePrice);
 
           CompletableFuture.allOf(CompletableFuture.supplyAsync(getMangoPrice), CompletableFuture.supplyAsync(getOrangePrice))
-                        .thenApply(future -> {
+                  .thenApply(future -> {
                             try {
                                 return  runnableTask1.get()
                                         + runnableTask2.get();
@@ -40,8 +40,7 @@ public class CompletableFutureExample {
                             } catch (ExecutionException e) {
                                 throw new RuntimeException(e);
                             }
-
-                        }).thenAccept( totalValue -> System.out.print("total value of fruits  :" + totalValue)  );
+                  }).thenAccept( totalValue -> System.out.print("total value of fruits  :" + totalValue)  );
 
 
 
