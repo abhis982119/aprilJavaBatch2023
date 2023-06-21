@@ -1,4 +1,4 @@
-package com.java.course.collection.listInterface.arrayList;
+package com.java.course.collection.listInterface;
 
 import java.util.Vector;
 

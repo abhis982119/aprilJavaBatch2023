@@ -1,4 +1,4 @@
-package com.java.course.collection.listInterface.arrayList;
+package com.java.course.collection.listInterface;
 
 import java.util.LinkedList;
 
@@ -20,5 +20,7 @@ public class LinkedListCharacterStick {
         //supports presevation of insertion order
 
         System.out.println("list data : " + list);
+
+        System.out.println("3rd position value  : " + list.get(3));
     }
 }

@@ -1,4 +1,4 @@
-package com.java.course.collection.stackInterface.arraystack;
+package com.java.course.collection.listInterface;
 
 import java.util.Stack;
 import java.util.Vector;

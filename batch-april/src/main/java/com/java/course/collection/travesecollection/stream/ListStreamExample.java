@@ -22,7 +22,16 @@ public class ListStreamExample {
         int sum = 0;
         List updateList =  arr.parallelStream().map(value -> value*10).collect(Collectors.toList());
         System.out.println("updated list : " + updateList);
+
+
+
+
+
+
+
+
     }
+
 
 
 }

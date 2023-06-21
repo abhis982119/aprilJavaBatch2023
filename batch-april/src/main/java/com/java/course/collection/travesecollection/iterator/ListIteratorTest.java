@@ -24,11 +24,9 @@ public class ListIteratorTest {
           int value = iterator.next();
           System.out.println(value);
           if(value == 20 ) {
-              iterator.add(50);
-              iterator.add(60);
-              iterator.add(70);
-
-
+                  iterator.add(50);
+                  iterator.add(60);
+                  iterator.add(70);
 
           }
           if(value == 30 ){

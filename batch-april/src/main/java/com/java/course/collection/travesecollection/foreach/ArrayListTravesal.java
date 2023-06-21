@@ -27,13 +27,14 @@ public class ArrayListTravesal {
              return list;
         };
         */
-
         CompletableFuture.supplyAsync(() -> {
             List list2 = new ArrayList();
             list2.add(10);
             list2.add(20);
             return list2;
             }).thenAccept(System.out::println);
+
+
 
 
 

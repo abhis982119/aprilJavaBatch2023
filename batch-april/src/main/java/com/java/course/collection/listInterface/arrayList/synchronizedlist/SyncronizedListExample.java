@@ -3,10 +3,7 @@ package com.java.course.collection.listInterface.arrayList.synchronizedlist;
 import lombok.SneakyThrows;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class SyncronizedListExample {
@@ -23,9 +20,38 @@ public class SyncronizedListExample {
         arr.add(1000);
         arr.add(2000);
 
-        CompletableFuture task1 = CompletableFuture.runAsync(  ()  -> { System.out.println(syncList); syncList.add(10); wait(10);});
-        CompletableFuture task2 = CompletableFuture.runAsync(  ()  -> {System.out.println(syncList); wait(10);});
+        CompletableFuture task1 = CompletableFuture.runAsync(  ()  -> {
+            synchronized (syncList) {
+                System.out.println(syncList);
+                System.out.println("lock taken by thread 1 : dding value 10");
+                wait(10);
+                syncList.add(10);
+                System.out.println("lock released by thread-1");
+            }
+        });
 
+
+        CompletableFuture task2 = CompletableFuture.runAsync(  ()  -> {
+            synchronized (syncList) {
+                System.out.println("lock released by thread-2, adding value 80");
+                wait(5);
+                syncList.add(80);
+                System.out.println(syncList);
+                System.out.println("lock released by thread-2");
+
+
+            }
+        });
+
+        wait(2);
+
+        System.out.println("done with the rest of the code");
+        syncList.add(90);
+        syncList.add(100);
+
+        System.out.println( "main thread printing array :" + syncList);
+
+        wait(20);
     }
 
 
